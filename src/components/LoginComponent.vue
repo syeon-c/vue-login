@@ -24,11 +24,18 @@ const memberPswd = ref("")
 
 /** 서버로 데이터 전송 **/
 const login = async () => {
+  const userData = {
+    mid: memberId.value, password: memberPswd.value
+  };
 
-  const res = await axios.post(`https://localhost:8080/api/login`)
-
-  console.log(memberId.value)
-  console.log(memberPswd.value)
+  await axios.post(`http://localhost:8080/api/login`, userData)
+    .then((response) => {
+      if (response.status === 200) {
+        console.log(userData)
+        return userData
+      }
+    })
+    .catch((error) => console.log(error.response));
 
 }
 
