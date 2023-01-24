@@ -1,9 +1,18 @@
 <template>
   <h2>Login Component </h2>
 
-  <input v-model="memberId" placeholder="ID" />
 
-  <input v-model="memberPswd" placeholder="password" />
+  <v-text-field
+    v-model="memberId"
+    placeholder="ID"
+    type="input"
+  />
+
+  <v-text-field
+    v-model="memberPswd"
+    placeholder="Password"
+    type="input"
+  />
 
   <div>
     <v-btn @click="handleClick1">Generate Key</v-btn>
